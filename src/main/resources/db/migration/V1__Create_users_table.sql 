@@ -1,0 +1,19 @@
+-- Create the USERS table
+CREATE TABLE USERS (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,  -- Auto-incrementing primary key
+    first_name VARCHAR(255),               -- First name
+    last_name VARCHAR(255),                -- Last name
+    email VARCHAR(255) UNIQUE NOT NULL,    -- Email (must be unique)
+    phone_number VARCHAR(20),              -- Phone number
+    is_otp_verified BOOLEAN DEFAULT FALSE, -- OTP verification status
+    is_oauth_verified BOOLEAN DEFAULT FALSE, -- OAuth verification status
+    seeder_address VARCHAR(255),           -- Seeder address (wallet address)
+    country_code VARCHAR(10),              -- Country code
+    state VARCHAR(100),                    -- State
+    has_pledged BOOLEAN DEFAULT FALSE,     -- Pledge status
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp for user creation
+);
+
+-- Indexes for fast querying
+CREATE INDEX idx_users_email ON USERS(email);
+CREATE INDEX idx_users_country_code ON USERS(country_code);

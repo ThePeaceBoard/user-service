@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="user-service" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="DB_USERNAME" value="root" />
+      <env name="DB_PASSWORD" value="" />
+      <env name="DB_HOST" value="localhost" />
+      <env name="DB_PORT" value="3306" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="org.example.UserServiceApplicationKt" />
+    <module name="user-service.main" />
+    <option name="PROGRAM_PARAMETERS" value=" --spring.profiles.active=dev" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

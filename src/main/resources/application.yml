@@ -1,0 +1,33 @@
+server:
+  port: 3001
+
+logging:
+  level:
+    io.r2dbc: DEBUG
+    org.springframework.r2dbc: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+
+spring:
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: 5672
+    username: ${RABBIT_USER:otp}
+    password: ${RABBIT_PASS:otp}
+  r2dbc:
+    url: r2dbc:mysql://${DB_HOST}:${DB_PORT}/USERS
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    pool:
+      enabled: true
+      initial-size: 10
+      max-size: 50
+      max-idle-time: 30m
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+otp:
+  events:
+    exchange: user.events
+    routing-key: user.otp-verified
